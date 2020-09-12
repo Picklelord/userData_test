@@ -5,6 +5,7 @@ The tool was built on Windows for Windows.
 It was built using "C:/test" as the directory it was run in and the unit test is coded to that for testing purposes.
 
 The tool supports command line functionality:
+```
 usage: userDataManager.py [-h] -c {add,display,convert} [-dl DATALOCATION]
               [-f {JSON,YAML}] [-ctf {JSON,YAML}] [-df {JSON,YAML,CSV,Text}]
               [-n NAME] [-ad ADDRESS] [-ph PHONE] [-e EMAIL]
