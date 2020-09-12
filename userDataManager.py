@@ -149,7 +149,7 @@ class Directory():
 					nm=newUserData[userId]["name"],
 					em=newUserData[userId]["email"]
 				)
-				res += "\tPhone Number = {ph}\tAddress = {ad}".format(
+				res += "\tPhone Number = {ph}\tAddress = {ad}\n".format(
 					ph=newUserData[userId]["phone"],
 					ad=newUserData[userId]["address"]
 				)
@@ -220,7 +220,7 @@ def runCommand(args):
 
 	elif args.cmd == "display":
 		if filterList == ["", "", "", ""]:
-			users = UD.list
+			users = UD.users
 		else:
 			users = []
 			for fltr in givenFilters:
