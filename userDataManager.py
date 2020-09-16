@@ -240,11 +240,7 @@ def writeData(dFormat, data, dataFile):
 	if not os.path.exists(os.path.dirname(dataFile)):
 		os.makedirs(os.path.dirname(dataFile))
 	with open(dataFile+dFormat.lower(), 'w') as f:
-		if dFormat == "JSON":
-			json.dump(data, f, indent=4, sort_keys=True)
-		elif dFormat == "YAML":
-			print "Writing out yaml"
-			yaml.dump(data, f, default_flow_style=False, allow_unicode=True)
+		eval("{}.dump({}, {}, indent=4, sort_keys=True)".format(dFormat.lower(), data, f))
 	return True
 
 
@@ -257,13 +253,8 @@ def readData(dFormat, dataFile):
 		return data
 
 	with open(dataFile+dFormat.lower(), 'r') as f:
-		if dFormat == "JSON":
-			data = json.load(f)
-			return data
-
-		elif dFormat == "YAML":
-			data = yaml.safe_load(f)
-			return data
+		data = eval("{}.load({})".format(dFormat.lower(), f))
+		return data
 
 
 if __name__ == "__main__":
